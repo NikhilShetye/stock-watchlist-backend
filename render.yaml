@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: stock-watchlist-backend
+    runtime: java
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/*.jar"
