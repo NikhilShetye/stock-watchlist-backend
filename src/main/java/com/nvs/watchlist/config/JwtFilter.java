@@ -21,15 +21,7 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        String path = request.getServletPath();
-
-        // Allow public endpoints
-        //fix jwt filter bypass for login and registration
-        if (path.equals("/users/login") ||
-                (path.equals("/users") && request.getMethod().equals("POST"))) {
-            filterChain.doFilter(request, response);
-            return;
-        }
+        
 
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
