@@ -1,8 +1,14 @@
 # 📈 Stock Watchlist Backend API
 
-## 🚀 Overview
+## 🚀 Live Demo
 
-A secure backend application built using Spring Boot that allows users to manage stock watchlists with authentication and role-based access control.
+👉 https://stock-watchlist-backend-5kha.onrender.com
+
+---
+
+## 🧠 Overview
+
+A production-ready backend system built with Spring Boot that allows users to manage stock watchlists securely with authentication and role-based access control.
 
 ---
 
@@ -12,8 +18,9 @@ A secure backend application built using Spring Boot that allows users to manage
 * Spring Boot
 * Spring Security
 * JWT Authentication
-* MySQL
+* PostgreSQL (Neon DB)
 * JPA (Hibernate)
+* Docker
 
 ---
 
@@ -22,11 +29,11 @@ A secure backend application built using Spring Boot that allows users to manage
 * User Registration & Login
 * JWT-based Authentication
 * Role-Based Authorization (USER / ADMIN)
-* Secure APIs
+* Secure REST APIs
 * Watchlist Management
 * Drag & Drop Reordering Logic
-* Pagination & Sorting
 * DTO-based Architecture
+* Cloud Deployment
 
 ---
 
@@ -58,13 +65,18 @@ Authorization: Bearer YOUR_TOKEN
 
 ---
 
+## 🐳 Run with Docker
+
+```bash
+docker build -t watchlist-app .
+docker run -p 8080:8080 watchlist-app
+```
+
+---
+
 ## ▶️ Run Locally
 
-1. Clone repo
-2. Configure MySQL in application.properties
-3. Run:
-
-```
+```bash
 ./mvnw spring-boot:run
 ```
 
@@ -73,8 +85,8 @@ Authorization: Bearer YOUR_TOKEN
 ## 💡 Future Improvements
 
 * Redis caching
-* Docker deployment
 * API documentation (Swagger)
+* Microservices architecture
 
 ---
 
