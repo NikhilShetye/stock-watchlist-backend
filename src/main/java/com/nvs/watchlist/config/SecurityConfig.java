@@ -11,13 +11,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+
+        http.cors(cors -> {
+        })
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html")
+                        .permitAll()
+
                         .requestMatchers("/users/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
+
                         // 🔥 Role-based access
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/watchlist/**").hasRole("USER")
+
                         .anyRequest().authenticated())
                 .addFilterBefore(new JwtFilter(), UsernamePasswordAuthenticationFilter.class);
 
