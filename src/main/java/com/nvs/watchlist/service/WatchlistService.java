@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,7 +42,7 @@ public class WatchlistService {
         return repo.save(watchlist);
     }
 
-    public Page<WatchlistResponse> getUserWatchlist(Pageable pageable) {
+    public Page<WatchlistResponse> getUserWatchlist(@ParameterObject Pageable pageable) {
 
         return repo.findByUserId(getUserId(), pageable).map(this::toResponse);
     }
