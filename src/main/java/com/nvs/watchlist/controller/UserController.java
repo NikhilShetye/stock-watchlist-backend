@@ -10,8 +10,11 @@ import com.nvs.watchlist.entity.User;
 import com.nvs.watchlist.service.UserService;
 import com.nvs.watchlist.utils.JwtUtil;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/users")
+@SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
     private final UserService service;

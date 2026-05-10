@@ -8,6 +8,9 @@ import com.nvs.watchlist.dto.request.WatchlistRequest;
 import com.nvs.watchlist.dto.response.WatchlistResponse;
 import com.nvs.watchlist.entity.Watchlist;
 import com.nvs.watchlist.service.WatchlistService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.data.domain.Page;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/watchlist")
+@SecurityRequirement(name = "bearerAuth")
 public class WatchlistController {
     private final WatchlistService service;
 
